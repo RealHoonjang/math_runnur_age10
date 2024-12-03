@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Math Runner Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+</head>
+<body>
+    <div id="startScreen">
+        <h1>Math Runner</h1>
+        <input type="text" id="playerName" placeholder="닉네임을 입력하세요">
+        <button id="startButton" disabled>게임 시작</button>
+        <div class="credit">Made by 훈장님</div>
+    </div>
+
+    <div id="gameScreen">
+        <div id="gameStats">
+            <div class="stat-item">
+                <span>STAGE</span>
+                <span id="stage">1</span>
+            </div>
+            <div class="stat-item">
+                <span>CAUGHT</span>
+                <span id="caughtCount">0</span>
+                <span>👮</span>
+            </div>
+            <div class="stat-item">
+                <div class="hearts-container">
+                    <div class="heart">❤️</div>
+                    <div class="heart">❤️</div>
+                    <div class="heart">❤️</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <span>TIME</span>
+                <div class="timer-bar">
+                    <div class="timer-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameContainer">
+            <div id="player">
+                <img src="images/run1.png" class="player-img" alt="player">
+            </div>
+            <div id="successMessage">I caught the thief!</div>
+        </div>
+
+        <div id="mathProblem">
+            <p id="problem"></p>
+            <div id="choices">
+                <button class="choice-btn" onclick="checkAnswer(this)"></button>
+                <button class="choice-btn" onclick="checkAnswer(this)"></button>
+                <button class="choice-btn" onclick="checkAnswer(this)"></button>
+                <button class="choice-btn" onclick="checkAnswer(this)"></button>
+            </div>
+            <p id="timeLeft"></p>
+        </div>
+        <div class="credit game-credit">Made by 훈장님</div>
+
+        <div id="mobileControls">
+            <div class="control-group left">
+                <button id="leftBtn">◀</button>
+                <button id="rightBtn">▶</button>
+            </div>
+            <div class="control-group right">
+                <button id="jumpBtn">JUMP</button>
+            </div>
+        </div>
+    </div>
+    <div id="webcam-container"></div>
+    <div id="label-container"></div>
+    <script src="pose.js"></script>
+    <script src="game.js"></script>
+</body>
+</html> 
